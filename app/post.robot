@@ -1,7 +1,7 @@
 *** Settings ***
 Resource        ../resources/services.robot
-Library    Collections
-Library    JSONLibrary
+Library         Collections
+Library         JSONLibrary
 
 *** Variables ***
 ${FIXTURE_PATH}  ${EXECDIR}/resources/user_payload.json

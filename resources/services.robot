@@ -3,9 +3,9 @@ Library    RequestsLibrary
 Library    Collections
 
 *** Variables ***
-${BASE_URL}         https://api-desafio-qa.onrender.com
-${user_route}       /users
-&{HEADERS}          Content-Type=application/json
+${BASE_URL}             https://api-desafio-qa.onrender.com
+${user_route}           /users
+&{HEADERS}              Content-Type=application/json
 
 *** Keywords ***
 Create users
