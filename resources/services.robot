@@ -11,15 +11,15 @@ ${user_route}           /users
 Create users
     [Arguments]         ${payload}
     ${response}         POST            ${BASE_URL}${user_route}    json=${PAYLOAD}    headers=${HEADERS}  
-    [Return]            ${response}
+    [RETURN]            ${response}
 
 
 Search All Users
     ${response}         GET             ${BASE_URL}${user_route}    headers=${HEADERS} 
-    [Return]            ${response}
+    [RETURN]            ${response}
 
     
 Delete User by Id
     [Arguments]         ${user_id}
     ${response}=        DELETE          ${BASE_URL}${USER_ROUTE}/${user_id}    headers=${HEADERS}
-    [Return]            ${response}
+    [RETURN]            ${response}
