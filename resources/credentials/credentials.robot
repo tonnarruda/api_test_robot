@@ -1,0 +1,3 @@
+*** Variables ***
+${BASE_URL}             https://fortescolabore2.fortestecnologia.com.br/homolog-next/api/agente/Ferias
+&{HEADERS}              Content-Type=application/json    x-api-key=ACTIjCHfsj1QZulkDK9oZ5bfPrlparVS44cb9o7F        cnpj-licenciado=63542443000124        colabore-signature-expiration=2039118666        colabore-signature=MEUCIFG0ZwY5iz5H9fiIwagx1lD9h0fhoKxU+zSqBD9JdyeXAiEAmMEQD2G8EBgtSTeMCQWRYiao0o9POsFFb38b0PDWliQ=
