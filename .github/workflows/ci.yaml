@@ -1,0 +1,53 @@
+name: End-to-end tests
+
+on:
+  push:
+    branches:
+      - main       # Ou o branch específico para o qual você deseja disparar o workflow
+  pull_request:
+    branches:
+      - main       # Ou o branch específico para o qual você deseja disparar o workflow
+  # Adicione outros eventos se necessário, por exemplo:
+  # workflow_dispatch:  # Permite disparar o workflow manualmente a partir da interface do GitHub
+
+jobs:
+  robot-run:
+    runs-on: ubuntu-22.04
+    environment: qa
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'  # Use a specific version of Python or a range
+
+      - name: Install Robot Framework and dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install robotframework
+          # Install any additional dependencies needed for your tests
+          pip install robotframework-requests
+
+      -  name: Run Robot Framework Tests
+        run: |
+          robot ./app/
+          # Ajuste o caminho para o diretório onde seus testes estão localizados
+
+
+      - name: Upload test results if tests failed
+        uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: robot-test-results
+          path: results
+          if-no-files-found: ignore
+
+      - name: Upload test results if successful
+        uses: actions/upload-artifact@v4
+        with:
+          name: robot-test-results
+          path: results
+          if-no-files-found: ignore
