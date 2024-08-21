@@ -12,4 +12,3 @@ Test Sucesso Com Parametro
 Test Falha Sem Parametro
     ${response}=                        Run Keyword And Ignore Error                    Buscar Ferias 
     Verify Negative Status Code         ${response}                                     400
-
